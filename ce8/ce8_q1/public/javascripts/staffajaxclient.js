@@ -33,6 +33,22 @@ function handleSendButtonClick() {
     var code  = document.getElementById("code");
     var xhr = new XMLHttpRequest();
     // TODO: fixme
+    xhr.onreadystatechange = function(){
+        if (xhr.readyState == 4){
+            var res = xhr.responseText;
+            var json = JSON.parse(res);
+            update_staffsregion(json);
+        }
+
+       
+
+    }
+    //construct http post request
+    var params = `name=${name.value}&code=${code.value}`;
+    xhr.open('POST', `/staff/submit/`, true);
+    // Send the proper header information along with the request
+    xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+    xhr.send(params);
 }
 
 /**

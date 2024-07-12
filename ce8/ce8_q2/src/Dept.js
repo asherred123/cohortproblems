@@ -42,7 +42,17 @@ function DeptList({depts}) {
         );
     }
     return (        
-        <div></div> // TODO: fixme
+        <div><th>Department Code</th>
+            <ul>
+                rows.map((dept) => <li>{dpet}</li>);             
+
+            </ul>
+        
+        
+        
+        </div> // TODO: fixme
+        
+        
     )
 }
 
